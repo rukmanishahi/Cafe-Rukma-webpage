@@ -91,7 +91,52 @@
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+/* Gallery images */
+.gallery-cell {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
 
+.gallery-cell img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gallery-cell {
+    width: 100%;
+    height: 260px;
+  }
+
+  .gallery-cell img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Menu images should not be cropped */
+  .gallery-cell.menu-cell {
+    height: auto;
+  }
+
+  .gallery-cell.menu-cell img {
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+  }
+}
 .map-frame iframe {
   width: 100%;
   height: 100%;

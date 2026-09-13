@@ -534,7 +534,97 @@
       .placeholder-copy strong { font-size: 1.55rem; }
       .placeholder-copy { padding: 12px; }
     }
-  </style>
+  
+/* FINAL STORY IMAGE FIX */
+.story-art {
+  width: 100% !important;
+  height: clamp(320px, 42vw, 520px) !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.story-photo {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+@media (max-width: 700px) {
+  .story-art {
+    height: 340px !important;
+  }
+}
+
+
+/* FINAL RESPONSIVE GALLERY FIX */
+.gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  align-items: start !important;
+}
+
+.gallery-cell {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  align-self: start !important;
+}
+
+.gallery-cell img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.gallery-cell.menu-cell {
+  grid-row: auto !important;
+}
+
+@media (max-width: 700px) {
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .gallery-cell,
+  .gallery-cell.menu-cell {
+    width: 100% !important;
+    height: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* Menus are displayed larger and remain fully readable */
+  .gallery-cell.menu-cell img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  /* Normal photos stay proportional and do not become giant/tall */
+  .gallery-cell:not(.menu-cell) img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .gallery-cell.menu-cell img {
+    max-height: 760px !important;
+  }
+}
+
+</style>
 </head>
 <body>
   <header class="site-header">
